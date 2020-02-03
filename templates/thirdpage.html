@@ -51,6 +51,30 @@ ul ul {
     list-style-type: none;
 }
 
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 </style>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -360,13 +384,40 @@ ul ul {
 
     </ul>
     <div class="center btmspace-80">
-      <h6 class="heading">Ваши права под защитой лучших практикующих юристов, которые знают решение любой юридической ситуации</h6>
+      <h6 class="heading">Ваши права под защитой лучших практикующих юристов, которые знают решение любой юридической ситуации</h6><hr>
     </div>
     
     <!-- <footer class="center"><a class="btn" href="#">Nisl sollicitudin porta</a></footer> -->
     <!-- ################################################################################################ -->
     <!-- / main body -->
     <div class="clear"></div>
+
+<!-- Submit form -->
+<div class="wrapper row3">
+    <div class="hoc container clear"> 
+      <!-- ################################################################################################ -->
+      <div class="sectiontitle center">
+        <h6 class="heading">Оставьте телефон для бесплатной консультации </h6>   
+           
+      </div>
+      <div class="one_full">
+                 
+          <form method="post" action="MAILTO:zhunussov1994@gmailcom">
+            <fieldset>
+              <legend>General Information:</legend>
+              <input class="btmspace-15" type="text" value="" placeholder="Введите имя">
+              <input class="btmspace-15" type="text" value="" placeholder="Номер телефона">
+
+              <textarea id="subject" name="subject" placeholder="Ваш текст.." style="height:200px"></textarea>
+              <button class="btn" type="submit" value="submit">Получить консультацию</button>
+            </fieldset>
+          </form>
+      </div>
+    </div>
+</div>
+      
+
+
   </main>
 </div>
 <!-- ################################################################################################ -->
