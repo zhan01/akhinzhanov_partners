@@ -242,17 +242,18 @@ input[type=submit] {
       </div>
       <div class="one_full">
                  
-          <form method="post" action="MAILTO:akhinzhanprt@gmail.com" enctype="text/plain">
-            <fieldset>
-              <legend>General Information:</legend>
-              <input class="btmspace-15" type="text" value="" placeholder="Введите имя">
-              <input class="btmspace-15" type="text" value="" placeholder="Номер телефона">
+        <form id="form" target="_self" method="post" onsubmit="return postToGoogle();" action="">
+          <fieldset>
+            <legend>General Information:</legend>
+            <input class="btmspace-15" type="text" value="" placeholder="Введите имя" id="name" required name="entry.1783219146">
+            <input class="btmspace-15" type="text" value="" placeholder="Номер телефона" id="phone" required name="entry.1273506231">
 
-              <textarea id="subject" name="subject" placeholder="Ваш текст.." style="height:200px"></textarea>
-              <button class="btn" type="submit" value="submit">Получить консультацию</button>
-            </fieldset>
-          </form>
-      </div>
+            <textarea id="subject" type="text" value="" placeholder="Ваш текст.." style="height:200px" required name="entry.2074985782"></textarea>
+            <button class="btn" type="submit" value="submit" >Получить консультацию</button>
+          </fieldset>
+        </form>
+        <h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; color:black"> Спасибо ! Мы скоро с Вам ответим .</h3>
+    </div>
     </div>
 </div>
       
@@ -290,7 +291,7 @@ input[type=submit] {
           <h6 class="heading font-x1">365 дней в году</h6>
           <p>(Каждый раз, когда возникает юридическая проблема, нет необходимости бросать все и решать ее. 
 
-            С Akhinzhanov Partners» у вас будет доверенная команда высокопрофессиональных юристов и налоговиков, готовых помочь вам в любое время. Будьте спокойны – мы помогаем вашему бизнесу стать успешным.) </p>
+            С Akhinzhanov Partners» у вас будет доверенная команда высокопрофессиональных юристов, готовых помочь вам в любое время. Будьте спокойны – мы помогаем вашему бизнесу стать успешным.) </p>
         </article>
       </li>
       <li class="one_third">
@@ -363,7 +364,7 @@ input[type=submit] {
   <div id="copyright" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2019 - All Rights Reserved - <a href="#">Akhinzhanov Partners</a></p>
-    <p class="fl_right">Template <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <p class="fl_right">Template <a target="_blank" href="https://www.kazdev.net/" title="Free Website Templates">KazDevelopment</a></p>
     <!-- ################################################################################################ -->
   </div>
 </div>
@@ -372,6 +373,45 @@ input[type=submit] {
 <!-- ################################################################################################ -->
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
+<script>
+  function postToGoogle() {
+                  var field1 = $("#name").val();
+                  var field2 = $("#phone").val();
+                  var field3 = $("#subject").val();
+      
+           
+          if(field1 == ""){
+            alert('Please Fill Your Name');
+            document.getElementById("name").focus();
+            return false;
+          }
+          if(field2 == ""){
+            alert('Please Fill Your phone');
+            document.getElementById("phone").focus();
+            return false;
+          }
+         
+  
+  
+                  $.ajax({
+                      url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfp9Sh3OtbnQfwNiHTYlU7_CNVeUhsiywQdOioNOP2ob-1Vwg/formResponse",
+            data: {"entry.1783219146": field1, "entry.1273506231": field2, "entry.2074985782": field3},
+                      type: "POST",
+                      dataType: "xml",
+                      success: function(d)
+            {
+            },
+            error: function(x, y, z)
+              {
+  
+                $('#success-msg').show();
+                $('#form').hide();
+                
+              }
+                  });
+          return false;
+              }
+  </script>
 <script src="/static/layout/scripts/jquery.min.js"></script>
 <script src="/static/layout/scripts/jquery.backtotop.js"></script>
 <script src="/static/layout/scripts/jquery.mobilemenu.js"></script>
